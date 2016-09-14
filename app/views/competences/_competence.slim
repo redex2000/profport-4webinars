@@ -1,1 +1,6 @@
-p = competence.name
+tr
+  td = competence.name
+  td
+    = link_to 'Обновить', edit_competence_path(competence)
+    = link_to 'Удалить', competence, method: :delete, data: { confirm: 'Вы уверены?' }
+
