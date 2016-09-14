@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :competences, except: [:show]
 
   root to: 'competences#index'

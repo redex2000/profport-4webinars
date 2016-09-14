@@ -2,3 +2,11 @@ nav.navbar.navbar-inverse
   ul.nav.navbar-nav
     li.active
       = link_to 'Компетенции', competences_path
+    - unless signed_in?
+      li
+        = link_to 'Войти', new_user_session_path
+      li
+        = link_to 'Регистрация', new_user_registration_path
+    - else
+      li
+        = link_to 'Выйти', destroy_user_session_path, method: :delete
