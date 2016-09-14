@@ -5,21 +5,32 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  encoding: utf8
+  server: localhost
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: profport_4webinars_dev
+  username: root
+  password: root
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: profport_4webinars_test
+  username: root
+  password: root
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: profport_4webinars
+  username: root
+  password: root
+  server: localhost
+  encoding: unicode
+  pool: 5
