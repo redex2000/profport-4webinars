@@ -1,26 +1,31 @@
 require 'rails_helper'
 
 RSpec.describe Competence, type: :model do
+  before { @competence = FactoryGirl.create :competence }
+
+  subject { @competence }
+
+  it { should respond_to :name }
+
   describe 'save' do
-    before(:each) { @competence = FactoryGirl.create :competence }
 
-    it 'valid with all fields' do
-      expect(@competence.save).to be_truthy
+    it { should be_valid }
+
+    describe 'not valid without name' do
+      before { @competence.name = nil }
+      it { should_not be_valid }
     end
 
-    it 'not valid without name' do
-      @competence.name = nil
-      expect(@competence.save).not_to be_truthy
+    describe 'valid with long name' do
+      before { @competence.name = 'a' * 255 }
+
+      it { should be_valid }
     end
 
-    it 'valid with long name' do
-      @competence.name = 'a' * 255
-      expect(@competence.save).to be_truthy
-    end
+    describe 'not valid with too long name' do
+      before { @competence.name = 'a' * 256 }
 
-    it 'not valid with too long name' do
-      @competence.name = 'a' * 256
-      expect(@competence.save).not_to be_truthy
+      it { should_not be_valid }
     end
   end
 end
