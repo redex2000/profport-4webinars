@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Competence, type: :model do
   describe 'save' do
-    before(:each) { @competence = Competence.new(name: 'Программирование на Rails5') }
+    before(:each) { @competence = FactoryGirl.create :competence }
 
     it 'valid with all fields' do
       expect(@competence.save).to be_truthy
