@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Competence, type: :model do
-  before { @competence = FactoryGirl.create :competence }
+  before(:all) { @competence = FactoryGirl.create :competence }
+  after(:all) { Competence.delete_all }
 
   subject { @competence }
 
