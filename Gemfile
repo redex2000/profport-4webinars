@@ -32,6 +32,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+gem 'will_paginate'
+
 gem 'slim'
 
 group :development, :test do

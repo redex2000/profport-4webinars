@@ -2,7 +2,7 @@ class CompetencesController < ApplicationController
   before_action :get_current, only: [ :edit, :update, :destroy ]
 
   def index
-    @competences = Competence.all
+    @competences = Competence.paginate per_page: 5, page: params[:page]
   end
 
   def new

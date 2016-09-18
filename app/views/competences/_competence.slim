@@ -1,6 +1,6 @@
 tr
   td = competence.name
   td
-    = link_to content_tag(:span, '', class: 'glyphicon glyphicon-edit', title: 'Редактировать'), edit_competence_path(competence)
+    = link_to content_tag(:span, '', class: 'glyphicon glyphicon-edit control-actions', title: 'Редактировать'), edit_competence_path(competence)
     = link_to content_tag(:span, '', class: 'glyphicon glyphicon-trash', title: 'Удалить'), competence, method: :delete, data: { confirm: 'Вы уверены?' }
 
