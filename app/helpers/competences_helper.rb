@@ -23,12 +23,12 @@ module CompetencesHelper
   # Направление сортировки меняется на убывание, если было по возрастанию и кликнули на тот же столбец
   # @param column - столбец из модели, по которому сортируем
   # @param title - Наименование, которое выводим в заголовке таблице, которое кликабельно
-  # TODO: Добавить класс для красивого отображения
   # TODO: Сделать по AJAX
-  # Разобраться с вопросами безопасности, пока сделано permit!
   def sortable(column, title = nil)
     title ||= column
+    css_bootstrap_class = 'glyphicon '
+    css_bootstrap_class += (direction_param == 'asc')? 'glyphicon-arrow-up':'glyphicon-arrow-down'
     direction = ( column == sort_param && direction_param == 'asc' )? 'desc' : 'asc'
-    link_to title, safe_params.merge( sort: column, direction: direction, page: nil )
+    link_to title, safe_params.merge( sort: column, direction: direction, page: nil ), class: css_bootstrap_class, remote: true
   end
 end
