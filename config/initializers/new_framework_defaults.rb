@@ -10,6 +10,10 @@ Rails.application.config.action_controller.per_form_csrf_tokens = true
 # Enable origin-checking CSRF mitigation. Previous versions had false.
 Rails.application.config.action_controller.forgery_protection_origin_check = true
 
+# Какие параметры мы можем безбоязненно передавать (не работает)
+# TODO: Найти лучшее решение, для проблемы "Attempting to generate a URL from non-sanitized request parameters! An attacker can inject malicious data into the generated URL, such as changing the host. Whitelist and sanitize passed parameters to be secure."
+#Rails.application.config.action_controller.always_permitted_parameters = [:per_page, :page, :sort, :direction, :search]
+
 # Make Ruby 2.4 preserve the timezone of the receiver when calling `to_time`.
 # Previous versions had false.
 ActiveSupport.to_time_preserves_timezone = true

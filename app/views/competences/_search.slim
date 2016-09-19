@@ -1,0 +1,5 @@
+= form_for(competences_path, method: :get, html: { id: 'competences-search-form', role: 'form', class: 'form-inline' }) do
+  div.form-group
+    = text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Введите название компетенции'
+  div.form-group
+    = button_tag '', class: 'glyphicon glyphicon-search'

@@ -1,8 +1,18 @@
 class CompetencesController < ApplicationController
   before_action :get_current, only: [ :edit, :update, :destroy ]
 
+  helper_method :sort_param, :direction_param, :safe_params
+
+  # respond_to :html, :js, :json
+
+
   def index
-    @competences = Competence.paginate per_page: 5, page: params[:page]
+    @competences = Competence.search(params[:search]).order("#{sort_param} #{direction_param}").paginate(per_page: 5, page: params[:page])
+    respond_to do |format|
+      format.html { render :index }
+      format.js
+      format.json { render @competences.to_json }
+    end
   end
 
   def new
@@ -56,4 +66,19 @@ private
   def get_current
     @competence = Competence.find params[:id]
   end
+
+  # По какому полю сортируем, на будущее
+  def sort_param
+    Competence.column_names.include?(params[:sort])? params[:sort] : 'name'
+  end
+
+  def direction_param
+    %w(asc desc).include?(params[:direction])? params[:direction] : 'asc'
+  end
+
+  # См. https://github.com/rails/rails/issues/26289
+  def safe_params
+    params.except(:host, :port, :protocol).permit!
+  end
+
 end
