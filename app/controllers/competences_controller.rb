@@ -3,10 +3,14 @@ class CompetencesController < ApplicationController
 
   helper_method :sort_param, :direction_param, :safe_params
 
-  respond_to :html, :js, :json
+  # respond_to :html, :js, :json
 
   def index
     @competences = Competence.search(params[:search]).order("#{sort_param} #{direction_param}").paginate(per_page: 5, page: params[:page])
+    respond_to do |format|
+      format.js { render layout: false }
+      format.html { render :index }
+    end
   end
 
   def new
