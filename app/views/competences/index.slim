@@ -5,13 +5,5 @@ h2 Список компетенций
 = hidden_field_tag :direction, params[:direction]
 = hidden_field_tag :sort, params[:sort]
 
-table.table.table-hover
-  thead
-    tr
-      th = sortable 'name', 'Наименование'
-      th Действия
-  tbody
-    = render @competences
-
-div.apple_pagination
-  = ajax_paginate @competences
+div#competences-list
+  = render 'competences'

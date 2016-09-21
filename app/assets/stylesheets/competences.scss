@@ -6,6 +6,13 @@
   padding-right: 1em;
 }
 
+#competences-search-form input[type='text'] {
+  width: 300px;
+}
+
 #competences-search-form button {
   border: none;
+  background: none;
+  position: relative;
+  left: -30px;
 }

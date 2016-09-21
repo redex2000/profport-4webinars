@@ -1,0 +1,10 @@
+table.table.table-hover
+  thead
+    tr
+      th = sortable 'name', 'Наименование'
+      th Действия
+  tbody
+    = render @competences
+
+div.apple_pagination
+  = ajax_paginate @competences
