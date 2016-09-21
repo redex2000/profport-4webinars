@@ -1,24 +1,6 @@
-# README
+# profport-4webinars
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Пример веб-приложения, которое демонстрирует возможности:
+* Интеграционного и модульного тестирования с помощью RSpec
+* Применение технологии AJAX для живого поиска, сортировки и пагинации
+* Использованы SLIM, Bootstrap, отчасти Devise (пока не используем возможности зарегистрированного пользователя)
