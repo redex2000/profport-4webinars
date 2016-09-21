@@ -15,3 +15,15 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+    //$('#competences-search-form input[type="text"]').on('keyup', null, liveSearch);
+    //$('#competences-search-form input[type="submit"]').on('click', null, liveSearch);
+    //
+    //function liveSearch() {
+    //    console.log('submitted');
+    //    $.get($('#competences-search-form input').attr('action'), $('#competences-search-form input').serialize(), null, 'script');
+    //    event.preventDefault();
+    //}
+});
